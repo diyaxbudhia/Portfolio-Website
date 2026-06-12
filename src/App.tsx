@@ -6,6 +6,7 @@ import About from "./sections/About";
 import Interests from "./sections/Interests";
 import TechStack from "./sections/TechStack";
 import Experience from "./sections/Experience";
+import Projects from "./sections/Projects";
 import Achievements from "./sections/Achievements";
 import Contact from "./sections/Contact";
 
@@ -24,6 +25,7 @@ export default function App() {
         <Interests />
         <TechStack />
         <Experience />
+        <Projects />
         <Achievements />
         <Contact />
       </main>
