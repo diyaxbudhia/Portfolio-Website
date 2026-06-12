@@ -3,7 +3,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { Github, Linkedin, Mail } from "lucide-react";
 import Typewriter from "../components/Typewriter";
 import GlowOrb from "../components/GlowOrb";
-import { Lightning, FeatureItem } from "../components/ui/hero-odyssey";
+import { Lightning } from "../components/ui/hero-odyssey";
 
 const MacBookScene = lazy(() => import("../components/MacBookScene"));
 
@@ -52,7 +52,7 @@ export default function Hero() {
       </motion.div>
 
       {/* floating feature labels (desktop only) */}
-      <div className="relative z-10 hidden w-full max-w-6xl md:block">
+      {/* <div className="relative z-10 hidden w-full max-w-6xl md:block">
         {[
           { name: "AI & ML", value: "research-minded", position: "left-0 top-44" },
           { name: "Full-Stack", value: "end to end", position: "left-[22%] top-28" },
@@ -68,10 +68,10 @@ export default function Hero() {
             <FeatureItem {...item} />
           </motion.div>
         ))}
-      </div>
+      </div> */}
 
       {/* ── main content, centered like the Odyssey layout ── */}
-      <div className="relative z-20 flex w-full max-w-4xl flex-col items-center px-6 pt-40 text-center sm:pt-44">
+      <div className="relative z-20 flex w-full max-w-4xl flex-col items-center px-6 pt-0 text-center sm:pt-24">
         {/* <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
