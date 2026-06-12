@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Wheel/touch scrolling is fully native; this only smooths anchor jumps. */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base text-primary font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(255, 107, 53, 0.35);
+    color: #f8f8f8;
+  }
+
+  /* Hide the native cursor only when the custom cursor is active (fine pointers) */
+  @media (pointer: fine) {
+    body.custom-cursor,
+    body.custom-cursor a,
+    body.custom-cursor button {
+      cursor: none;
+    }
+  }
+}
+
+@layer components {
+  /* Clean neutral glass: frosted blur, faint white border, no colour cast. */
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-aurora bg-clip-text text-transparent;
+  }
+
+  .tilt-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transform-style: preserve-3d;
+  }
+
+  .tilt-card:hover {
+    transform: perspective(800px) translateY(-4px) rotateX(2deg) rotateY(1deg);
+  }
+
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, #ff4d8f, #a855f7);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
